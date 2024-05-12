@@ -16,6 +16,7 @@ namespace HexTecGames.RectGridSystem
             }
         }
         private static readonly Coord zero = new Coord(0, 0);
+
         public static Coord Up
         {
             get
@@ -24,7 +25,6 @@ namespace HexTecGames.RectGridSystem
             }
         }
         private static readonly Coord up = new Coord(0, 1);
-
         public static Coord Down
         {
             get
@@ -33,7 +33,6 @@ namespace HexTecGames.RectGridSystem
             }
         }
         private static readonly Coord down = new Coord(0, -1);
-
         public static Coord Left
         {
             get
@@ -42,7 +41,6 @@ namespace HexTecGames.RectGridSystem
             }
         }
         private static readonly Coord left = new Coord(-1, 0);
-
         public static Coord Right
         {
             get
@@ -51,6 +49,7 @@ namespace HexTecGames.RectGridSystem
             }
         }
         private static readonly Coord right = new Coord(1, 0);
+
         public static Coord UpRight
         {
             get
@@ -83,7 +82,6 @@ namespace HexTecGames.RectGridSystem
             }
         }
         private static readonly Coord upLeft = new Coord(-1, 1);
-
 
         private static readonly Coord[] adjacents = new Coord[] { Up, Right, Down, Left };
         private static readonly Coord[] diagonals = new Coord[] { UpRight, DownRight, DownLeft, UpLeft };
@@ -190,6 +188,7 @@ namespace HexTecGames.RectGridSystem
 
             return results;
         }
+        
         public static bool IsAdjacent(Coord coord1, Coord coord2, int distance = 1)
         {
             int currentDistance = GetDistance(coord1, coord2);
