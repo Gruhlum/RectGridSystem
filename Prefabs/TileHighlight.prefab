@@ -48,6 +48,7 @@ MonoBehaviour:
   sr: {fileID: 8547098130155536496}
   startDelay: 0
   hasDuration: 0
+  duration: 1
   fadeIn: 0.2
   fadeOut: 0.2
 --- !u!212 &8547098130155536496
@@ -89,14 +90,14 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1255112337
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 50
-  m_Sprite: {fileID: 21300000, guid: 5a7a8f58382b6e547aa26e7ab4b49c99, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0e7b13958f7a3fc42adaac2cde0808d5, type: 3}
   m_Color: {r: 0.9513052, g: 1, b: 0.5137255, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
