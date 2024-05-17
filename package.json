@@ -1,6 +1,6 @@
 {
   "name": "com.hextecgames.rectgridsystem",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "displayName": "RectGridSystem",
   "description": "Package for handling rectangular grids",
   "unity": "2019.1",
