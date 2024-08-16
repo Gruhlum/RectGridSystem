@@ -43,6 +43,11 @@ namespace HexTecGames.RectGridSystem
         ////    return null;
         ////}
 
+        public override Coord GetRotatedCoord(Coord center, Coord coord, int rotation)
+        {
+            return TileCoord.Rotate(center, coord, rotation);
+        }
+
         public override List<Coord> GetArea(Coord center, int radius)
         {
             return TileCoord.GetArea(center, radius);

@@ -86,6 +86,39 @@ namespace HexTecGames.RectGridSystem
         private static readonly Coord[] adjacents = new Coord[] { Up, Right, Down, Left };
         private static readonly Coord[] diagonals = new Coord[] { UpRight, DownRight, DownLeft, UpLeft };
 
+
+        public static Coord Rotate(Coord center, Coord coord, int rotation)
+        {
+            rotation %= 4;
+
+            if (rotation == 0)
+            {
+                return coord;
+            }
+            //center = 5,5
+            //rotation = 2;
+            //expected: coord = 5,4
+
+            //coord: 0, 1, -1
+            //next:  1, 0, -1
+            //next:  0, -1, 1
+            //next:  -1, 0, 1
+            //next:  0, 1, -1
+
+
+            coord -= center; //coord = 0, 1
+
+            int c = -(coord.x +coord.y);
+
+            for (int i = 0; i < rotation; i++)
+            {
+                coord = new Coord(coord.y, coord.y + c);
+                c = -(coord.x + coord.y);
+            }
+
+            coord += center;
+            return coord;
+        }
         public static int GetDistance(Coord coord1, Coord coord2)
         {
             int diffX = Mathf.Max(coord1.x, coord2.x) - Mathf.Min(coord1.x, coord2.x);
@@ -128,7 +161,7 @@ namespace HexTecGames.RectGridSystem
             }
             return results;
         }
-       
+
         public static Coord GetAdjacent(Coord center, int direction, int distance = 1)
         {
             if (distance <= 1)
@@ -188,7 +221,7 @@ namespace HexTecGames.RectGridSystem
 
             return results;
         }
-        
+
         public static bool IsAdjacent(Coord coord1, Coord coord2, int distance = 1)
         {
             int currentDistance = GetDistance(coord1, coord2);
