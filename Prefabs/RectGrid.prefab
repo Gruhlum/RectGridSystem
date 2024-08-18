@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c1846d4aeed0049a406bebb634baac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  srSpawner:
-    prefab: {fileID: 2745033693644483177, guid: e058f1fd254e82e4fb626e28bcf80486, type: 3}
+  defaultVisual: {fileID: 2745033693644483177, guid: e058f1fd254e82e4fb626e28bcf80486, type: 3}
+  spawner:
     parent: {fileID: 5333064472088573259}
   grid: {fileID: 3470767551147018117}
 --- !u!1 &1854436945792919554
@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824c8f5e3516d1044835ee4fff698a77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventSystem: {fileID: 8651441525275067997}
   allowResize: 0
   maximumWidth: 0
   maximumHeight: 0
