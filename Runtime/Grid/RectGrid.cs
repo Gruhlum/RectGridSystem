@@ -43,6 +43,14 @@ namespace HexTecGames.RectGridSystem
         ////    return null;
         ////}
 
+        public override Coord GetDirectionCoord(Coord coord, int direction)
+        {
+            return TileCoord.GetAdjacent(coord, direction);
+        }
+        public override int GetDirection(Coord center, Coord coord)
+        {
+            return TileCoord.GetDirection(center, coord);
+        }
         public override Coord GetRotatedCoord(Coord center, Coord coord, int rotation)
         {
             return TileCoord.Rotate(center, coord, rotation);
@@ -58,14 +66,13 @@ namespace HexTecGames.RectGridSystem
             return TileCoord.GetRing(center, radius);
         }
 
-        public virtual List<Coord> GetAdjacent(Coord center)
+        public override List<Coord> GetAdjacents(Coord center)
         {
-            return GetRing(center, 1);
+            return TileCoord.GetAdjacents(center, 1);
         }
-
         public override List<Coord> GetNeighbourCoords(Coord center)
         {
-            return TileCoord.GetAdjacents(center);
+            return TileCoord.GetNeighbours(center);
         }
     }
 }
