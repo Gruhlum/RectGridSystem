@@ -9,6 +9,14 @@ namespace HexTecGames.RectGridSystem
 {
     public class RectGrid : BaseGrid
     {
+        public override int MaximumRotation
+        {
+            get
+            {
+                return TileCoord.MaximumRotation;
+            }
+        }
+
         public override Vector3 CoordToWorldPoint(Coord coord)
         {
             return new Vector2(coord.x * TotalHorizontalSpacing + transform.position.x, coord.y * TotalVerticalSpacing + transform.position.y);
@@ -20,29 +28,33 @@ namespace HexTecGames.RectGridSystem
                 Mathf.RoundToInt((position.y - transform.position.y) / TotalVerticalSpacing));
         }
 
-        ////public List<TileCoord> FindClosestEmptyTiles(TileCoord center, int maxRange = 20)
-        ////{
-        ////    List<TileCoord> emptyTiles = new List<TileCoord>();
-        ////    bool foundTile = false;
-        ////    for (int i = 0; i < maxRange; i++)
-        ////    {
-        ////        var results = center.GetTilesByDistance(i);
-        ////        foreach (var result in results)
-        ////        {
-        ////            if (IsTileEmpty(result))
-        ////            {
-        ////                emptyTiles.Add(result);
-        ////                foundTile = true;
-        ////            }
-        ////        }
-        ////        if (foundTile)
-        ////        {
-        ////            return emptyTiles;
-        ////        }
-        ////    }
-        ////    return null;
-        ////}
+        //public List<TileCoord> FindClosestEmptyTiles(TileCoord center, int maxRange = 20)
+        //{
+        //    List<TileCoord> emptyTiles = new List<TileCoord>();
+        //    bool foundTile = false;
+        //    for (int i = 0; i < maxRange; i++)
+        //    {
+        //        var results = center.GetTilesByDistance(i);
+        //        foreach (var result in results)
+        //        {
+        //            if (IsTileEmpty(result))
+        //            {
+        //                emptyTiles.Add(result);
+        //                foundTile = true;
+        //            }
+        //        }
+        //        if (foundTile)
+        //        {
+        //            return emptyTiles;
+        //        }
+        //    }
+        //    return null;
+        //}
 
+        public override List<Coord> GetBoxBetweenTwoPoints(Coord coord1, Coord coord2)
+        {
+            return TileCoord.GetBoxBetweenTwoPoints(coord1, coord2);
+        }
         public override Coord GetDirectionCoord(Coord coord, int direction)
         {
             return TileCoord.GetAdjacent(coord, direction);
@@ -51,21 +63,28 @@ namespace HexTecGames.RectGridSystem
         {
             return TileCoord.GetDirection(center, coord);
         }
+        public override Coord GetDirectionFromInput(Vector2 input)
+        {
+            input = input.normalized;
+
+            float angle = Vector2.SignedAngle(input, Vector2.right) + 90;
+            int direction = Mathf.RoundToInt(angle / 90f);
+            Debug.Log("input: " + input.ToString() + " angle: " + angle + " direction: " + direction);
+            return TileCoord.adjacents[direction];
+        }
+
         public override Coord GetRotatedCoord(Coord center, Coord coord, int rotation)
         {
             return TileCoord.Rotate(center, coord, rotation);
         }
-
         public override List<Coord> GetArea(Coord center, int radius)
         {
             return TileCoord.GetArea(center, radius);
         }
-
         public override List<Coord> GetRing(Coord center, int radius)
         {
             return TileCoord.GetRing(center, radius);
         }
-
         public override List<Coord> GetAdjacents(Coord center)
         {
             return TileCoord.GetAdjacents(center, 1);

@@ -83,8 +83,10 @@ namespace HexTecGames.RectGridSystem
         }
         private static readonly Coord upLeft = new Coord(-1, 1);
 
-        private static readonly Coord[] adjacents = new Coord[] { Up, Right, Down, Left };
-        private static readonly Coord[] diagonals = new Coord[] { UpRight, DownRight, DownLeft, UpLeft };
+        public static readonly Coord[] adjacents = new Coord[] { Up, Right, Down, Left };
+        public static readonly Coord[] diagonals = new Coord[] { UpRight, DownRight, DownLeft, UpLeft };
+
+        public readonly static int MaximumRotation = 4;
 
         public static int Length(Coord coord)
         {
@@ -101,7 +103,7 @@ namespace HexTecGames.RectGridSystem
         }
         public static Coord Rotate(Coord center, Coord coord, int rotation)
         {
-            rotation %= 4;
+            rotation %= MaximumRotation;
 
             if (rotation == 0)
             {
@@ -195,18 +197,31 @@ namespace HexTecGames.RectGridSystem
             }
             return results;
         }
+        public static List<Coord> GetBoxBetweenTwoPoints(Coord coord1, Coord coord2)
+        {
+            List<Coord> results = new List<Coord>();
 
+            for (int x = Mathf.Min(coord1.x, coord2.x); x <= Mathf.Max(coord1.x, coord2.x); x++)
+            {
+                for (int y = Mathf.Min(coord1.y, coord2.y); y <= Mathf.Max(coord1.y, coord2.y); y++)
+                {
+                    results.Add(new Coord(x, y));
+                }
+            }
+            return results;
+        }
         // Diagonals = Corners
         // Adjacent = Left/Right/Up/Down
         // Neighbours = Diagonals + Adjacent
-
         public static Coord GetAdjacent(Coord center, int direction, int distance = 1)
         {
+            direction = direction.LoopValue(MaximumRotation);
+            
             if (distance <= 1)
             {
-                return center + adjacents[direction % 4];
+                return center + adjacents[direction];
             }
-            else return center + adjacents[direction % 4] * distance;
+            else return center + adjacents[direction] * distance;
         }
         public static List<Coord> GetAdjacents(Coord center, int distance = 1)
         {
