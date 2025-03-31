@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2369952302620992559
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1258244657299516585, guid: 1806a798deafb3048a59f57cf7af1d4b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5a7a8f58382b6e547aa26e7ab4b49c99,
+        type: 3}
+    - target: {fileID: 1258244657299516585, guid: 1806a798deafb3048a59f57cf7af1d4b,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831045771071672281, guid: 1806a798deafb3048a59f57cf7af1d4b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831045771071672281, guid: 1806a798deafb3048a59f57cf7af1d4b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831045771071672281, guid: 1806a798deafb3048a59f57cf7af1d4b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831045771071672281, guid: 1806a798deafb3048a59f57cf7af1d4b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831045771071672281, guid: 1806a798deafb3048a59f57cf7af1d4b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831045771071672281, guid: 1806a798deafb3048a59f57cf7af1d4b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831045771071672281, guid: 1806a798deafb3048a59f57cf7af1d4b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831045771071672281, guid: 1806a798deafb3048a59f57cf7af1d4b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831045771071672281, guid: 1806a798deafb3048a59f57cf7af1d4b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831045771071672281, guid: 1806a798deafb3048a59f57cf7af1d4b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243251160118815307, guid: 1806a798deafb3048a59f57cf7af1d4b,
+        type: 3}
+      propertyPath: m_Name
+      value: DebugTileVisual2D
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3609766368394258892, guid: 1806a798deafb3048a59f57cf7af1d4b, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8243251160118815307, guid: 1806a798deafb3048a59f57cf7af1d4b,
+        type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 6896731114264141299}
+  m_SourcePrefab: {fileID: 100100000, guid: 1806a798deafb3048a59f57cf7af1d4b, type: 3}
+--- !u!212 &3573023328585713798 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1258244657299516585, guid: 1806a798deafb3048a59f57cf7af1d4b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2369952302620992559}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5946486887070994020 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8243251160118815307, guid: 1806a798deafb3048a59f57cf7af1d4b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2369952302620992559}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6896731114264141299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5946486887070994020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bacf9ae49556b4643b24a2ad9b0697e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sr: {fileID: 3573023328585713798}
+  normalColor: {r: 0.47517234, g: 0.7075472, b: 0.47058564, a: 1}
+  passableColor: {r: 0.7600383, g: 0.8867924, b: 0.16313636, a: 1}
+  blockedColor: {r: 0.8867924, g: 0.4786546, b: 0.1966002, a: 1}

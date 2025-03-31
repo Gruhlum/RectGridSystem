@@ -19,7 +19,9 @@ namespace HexTecGames.RectGridSystem
 
         public override Vector3 CoordToWorldPoint(Coord coord)
         {
-            return new Vector2(coord.x * TotalHorizontalSpacing + transform.position.x, coord.y * TotalVerticalSpacing + transform.position.y);
+            return new Vector2(
+                coord.x * TotalHorizontalSpacing + transform.position.x,
+                coord.y * TotalVerticalSpacing + transform.position.y);
             //return new Vector2(coord.x + transform.position.x, coord.y + transform.position.y);
         }
         public override Coord WorldPositionToCoord(Vector3 position)
@@ -92,6 +94,11 @@ namespace HexTecGames.RectGridSystem
         public override List<Coord> GetNeighbourCoords(Coord center)
         {
             return TileCoord.GetNeighbours(center);
+        }
+
+        public override int GetDistance(Coord coord1, Coord coord2)
+        {
+            return TileCoord.GetDistance(coord1, coord2);
         }
     }
 }

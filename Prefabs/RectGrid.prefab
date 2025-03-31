@@ -44,10 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c1846d4aeed0049a406bebb634baac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultVisual: {fileID: 2745033693644483177, guid: e058f1fd254e82e4fb626e28bcf80486, type: 3}
+  grid: {fileID: 3470767551147018117}
+  defaultVisual: {fileID: 8788898515396123548, guid: 07f767a42ec125b448ca4f184f4e1944, type: 3}
   spawner:
     parent: {fileID: 5333064472088573259}
-  grid: {fileID: 3470767551147018117}
 --- !u!1 &1854436945792919554
 GameObject:
   m_ObjectHideFlags: 0
@@ -77,7 +77,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7666707980285817234}
   m_Father: {fileID: 4384984967180613471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5090343155053584399
@@ -92,10 +93,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 757d478efcda9624cbecda36e148e330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridEventSys: {fileID: 8651441525275067997}
   highlightSpawner:
     prefab: {fileID: 3396727316683776115, guid: da717ebe010388942977dd60cefba45c, type: 3}
     parent: {fileID: 5508438335743829958}
-  gridEventSys: {fileID: 8651441525275067997}
+    grid: {fileID: 3470767551147018117}
+  mouseClickHighlight: {fileID: 457265065928344360}
   hoverData:
     startDelay: 0
     hasDuration: 0
@@ -103,13 +106,7 @@ MonoBehaviour:
     fadeIn: 0
     fadeOut: 0
     color: {r: 0.41037738, g: 0.8020218, b: 1, a: 1}
-  leftClickData:
-    startDelay: 0
-    hasDuration: 1
-    duration: 0.2
-    fadeIn: 0
-    fadeOut: 0
-    color: {r: 0.252047, g: 0.65727603, b: 0.9056604, a: 1}
+  onlyShowOnTiles: 0
 --- !u!1 &2779256414821585236
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,13 +204,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 8651441525275067997}
-  allowResize: 0
-  maximumWidth: 0
-  maximumHeight: 0
   tileWidth: 1
   tileHeight: 1
-  verticalSpacing: 0
-  horizontalSpacing: 0
+  verticalSpacing: 0.1
+  horizontalSpacing: 0.1
 --- !u!1 &5834671586066328675
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +219,7 @@ GameObject:
   - component: {fileID: 7853647301726166740}
   - component: {fileID: 6750810802598916618}
   m_Layer: 0
-  m_Name: GridVisualizer
+  m_Name: TileVisualizer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -259,8 +253,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 3470767551147018117}
-  displaySpawner:
-    prefab: {fileID: 7519770974695120814, guid: 1806a798deafb3048a59f57cf7af1d4b, type: 3}
+  defaultVisual: {fileID: 3609766368394258892, guid: 1806a798deafb3048a59f57cf7af1d4b, type: 3}
+  spawner:
     parent: {fileID: 7853647301726166740}
 --- !u!1 &6353720272636995139
 GameObject:
@@ -310,6 +304,88 @@ MonoBehaviour:
   createOnStart: 1
   width: 20
   height: 20
+  center:
+    x: 0
+    y: 0
+    isValid: 0
   allTileDatas:
-  - {fileID: 11400000, guid: 4bc053121513a474c99557d0c84e59f5, type: 2}
+  - {fileID: 11400000, guid: df516e5a25dd7de4a97b09019b37d8a4, type: 2}
+  allTileObjectDatas: []
   gridToLoad: {fileID: 0}
+--- !u!1001 &9204966774596892432
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5508438335743829958}
+    m_Modifications:
+    - target: {fileID: 1574855566411974274, guid: 08c97dc6100488749a950ff3acb68aff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574855566411974274, guid: 08c97dc6100488749a950ff3acb68aff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574855566411974274, guid: 08c97dc6100488749a950ff3acb68aff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574855566411974274, guid: 08c97dc6100488749a950ff3acb68aff, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574855566411974274, guid: 08c97dc6100488749a950ff3acb68aff, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574855566411974274, guid: 08c97dc6100488749a950ff3acb68aff, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574855566411974274, guid: 08c97dc6100488749a950ff3acb68aff, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574855566411974274, guid: 08c97dc6100488749a950ff3acb68aff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574855566411974274, guid: 08c97dc6100488749a950ff3acb68aff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574855566411974274, guid: 08c97dc6100488749a950ff3acb68aff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107933492110546230, guid: 08c97dc6100488749a950ff3acb68aff, type: 3}
+      propertyPath: m_Name
+      value: TileHighlight
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107933492110546230, guid: 08c97dc6100488749a950ff3acb68aff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 08c97dc6100488749a950ff3acb68aff, type: 3}
+--- !u!114 &457265065928344360 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -439641212844755912, guid: 08c97dc6100488749a950ff3acb68aff, type: 3}
+  m_PrefabInstance: {fileID: 9204966774596892432}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eba8de8a73a9554393e75146269fdbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &7666707980285817234 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1574855566411974274, guid: 08c97dc6100488749a950ff3acb68aff, type: 3}
+  m_PrefabInstance: {fileID: 9204966774596892432}
+  m_PrefabAsset: {fileID: 0}
