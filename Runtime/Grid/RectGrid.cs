@@ -17,6 +17,40 @@ namespace HexTecGames.RectGridSystem
             }
         }
 
+        public override float TileWidth
+        {
+            get
+            {
+                return tileWidth;
+            }
+        }
+        [SerializeField] private float tileWidth = default;
+
+        public override float TileHeight
+        {
+            get
+            {
+                return tileHeight;
+            }
+        }
+        [SerializeField] private float tileHeight = default;
+
+        public override float TotalVerticalSpacing
+        {
+            get
+            {
+                return TileHeight + VerticalSpacing;
+            }
+        }
+
+        public override float TotalHorizontalSpacing
+        {
+            get
+            {
+                return TileWidth * HorizontalSpacing;
+            }
+        }
+
         public override Vector3 CoordToWorldPoint(Coord coord)
         {
             return new Vector2(
