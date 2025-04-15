@@ -47,7 +47,7 @@ namespace HexTecGames.RectGridSystem
         {
             get
             {
-                return TileWidth * HorizontalSpacing;
+                return TileWidth + HorizontalSpacing;
             }
         }
 
