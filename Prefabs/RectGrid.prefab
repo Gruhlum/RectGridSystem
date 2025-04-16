@@ -152,8 +152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 3470767551147018117}
-  eventSys: {fileID: 0}
   showDebugs: 0
+  continousDetection: 1
 --- !u!1 &3993183246573370743
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,11 +184,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7853647301726166740}
-  - {fileID: 874608235575185250}
   - {fileID: 4048622080082549468}
   - {fileID: 5508438335743829958}
+  - {fileID: 7853647301726166740}
   - {fileID: 5333064472088573259}
+  - {fileID: 874608235575185250}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3470767551147018117
@@ -204,10 +204,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 8651441525275067997}
-  tileWidth: 1
-  tileHeight: 1
   verticalSpacing: 0.1
   horizontalSpacing: 0.1
+  tileWidth: 1
+  tileHeight: 1
 --- !u!1 &5834671586066328675
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,6 +256,7 @@ MonoBehaviour:
   defaultVisual: {fileID: 3609766368394258892, guid: 1806a798deafb3048a59f57cf7af1d4b, type: 3}
   spawner:
     parent: {fileID: 7853647301726166740}
+  alwaysActive: 1
 --- !u!1 &6353720272636995139
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,16 +303,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 3470767551147018117}
   createOnStart: 1
-  width: 20
-  height: 20
   center:
     x: 0
     y: 0
     isValid: 0
-  allTileDatas:
-  - {fileID: 11400000, guid: df516e5a25dd7de4a97b09019b37d8a4, type: 2}
-  allTileObjectDatas: []
-  gridToLoad: {fileID: 0}
+  defaultTileData: {fileID: 0}
+  shape:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1001 &9204966774596892432
 PrefabInstance:
   m_ObjectHideFlags: 0

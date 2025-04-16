@@ -87,10 +87,6 @@ namespace HexTecGames.RectGridSystem
         //    return null;
         //}
 
-        public override List<Coord> GetBoxBetweenTwoPoints(Coord coord1, Coord coord2)
-        {
-            return TileCoord.GetBoxBetweenTwoPoints(coord1, coord2);
-        }
         public override Coord GetDirectionCoord(Coord coord, int direction)
         {
             return TileCoord.GetAdjacent(coord, direction);
@@ -133,6 +129,21 @@ namespace HexTecGames.RectGridSystem
         public override int GetDistance(Coord coord1, Coord coord2)
         {
             return TileCoord.GetDistance(coord1, coord2);
+        }
+
+        public override Coord GetClosestCoordInLine(Coord start, Coord target, int direction)
+        {
+            return TileCoord.GetClosestCoordInLine(start, target, direction);
+        }
+
+        public override List<Coord> GetLine(Coord start, Coord target)
+        {
+            return TileCoord.GetLine(start, target);
+        }
+
+        public override List<Coord> GetCoordsInBox(Vector2 start, Vector2 end)
+        {
+            return TileCoord.GetCoordsInBox(start, end);
         }
     }
 }

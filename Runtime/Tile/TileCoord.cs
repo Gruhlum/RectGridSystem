@@ -144,23 +144,14 @@ namespace HexTecGames.RectGridSystem
         {
             center -= coord;
             center = Normalized(center);
-            if (center.y <= 0.5f) // up
+            for (int i = 0; i < adjacents.Length; i++)
             {
-                return 0;
+                if (center == adjacents[i])
+                {
+                    return i;
+                }
             }
-            if (center.x <= 0.5f) // right
-            {
-                return 1;
-            }
-            if (center.y >= -0.5f) // down
-            {
-                return 2;
-            }
-            if (center.x >= -0.5f) // left
-            {
-                return 3;
-            }
-            return 0;
+            return -1;
         }
         public static List<Coord> GetArea(Coord center, int radius)
         {
@@ -197,15 +188,35 @@ namespace HexTecGames.RectGridSystem
             }
             return results;
         }
-        public static List<Coord> GetBoxBetweenTwoPoints(Coord coord1, Coord coord2)
+        public  static List<Coord> GetLine(Coord start, Coord target)
+        {
+            List<Coord> results = new List<Coord>();
+            float distance = GetDistance(start, target);
+            for (int i = 0; i < distance; i++)
+            {
+                results.Add(Lerp(start, target, i / distance));
+            }
+            return results;
+        }
+        public static Coord Lerp(Coord start, Coord target, float time)
+        {
+            float x = Mathf.Lerp(start.x, target.x, time);
+            float y = Mathf.Lerp(start.y, target.y, time);
+            return Round(x, y);
+        }
+        public static Coord Round(float x, float y)
+        {
+            return new Coord(Mathf.RoundToInt(x), Mathf.RoundToInt(y));
+        }
+        public static List<Coord> GetCoordsInBox(Vector2 coord1, Vector2 coord2)
         {
             List<Coord> results = new List<Coord>();
 
-            for (int x = Mathf.Min(coord1.x, coord2.x); x <= Mathf.Max(coord1.x, coord2.x); x++)
+            for (float x = Mathf.Min(coord1.x, coord2.x); x <= Mathf.Max(coord1.x, coord2.x); x++)
             {
-                for (int y = Mathf.Min(coord1.y, coord2.y); y <= Mathf.Max(coord1.y, coord2.y); y++)
+                for (float y = Mathf.Min(coord1.y, coord2.y); y <= Mathf.Max(coord1.y, coord2.y); y++)
                 {
-                    results.Add(new Coord(x, y));
+                    results.Add(Round(x, y));
                 }
             }
             return results;
@@ -274,7 +285,25 @@ namespace HexTecGames.RectGridSystem
 
             return results;
         }
+        public static bool IsInLine(Coord coord1, Coord coord2)
+        {
+            return coord1.x == coord2.x || coord1.y == coord2.y;
+        }
+        public static Coord GetClosestCoordInLine(Coord start, Coord target, int direction)
+        {
+            // start  = 5,5
+            // target = 6,6
+            // direction = 3 (left/right)
+            // result = 6,5
 
+            bool lockX = direction == 0 || direction == 2;
+
+            if (lockX)
+            {
+                return new Coord(start.x, target.y);
+            }
+            else return new Coord(target.x, start.y);
+        }
         public static bool IsAdjacent(Coord coord1, Coord coord2, int distance = 1)
         {
             int currentDistance = GetDistance(coord1, coord2);
