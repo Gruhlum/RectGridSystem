@@ -51,7 +51,7 @@ namespace HexTecGames.RectGridSystem
             }
         }
 
-        public override Vector3 CoordToWorldPoint(Coord coord)
+        public override Vector3 CoordToWorldPosition(Coord coord)
         {
             return new Vector2(
                 coord.x * TotalHorizontalSpacing + transform.position.x,
@@ -87,9 +87,9 @@ namespace HexTecGames.RectGridSystem
         //    return null;
         //}
 
-        public override Coord GetDirectionCoord(Coord coord, int direction)
+        public override Coord GetDirectionCoord(int direction)
         {
-            return TileCoord.GetAdjacent(coord, direction);
+            return TileCoord.GetAdjacent(direction);
         }
         public override int GetDirection(Coord center, Coord coord)
         {
@@ -144,6 +144,16 @@ namespace HexTecGames.RectGridSystem
         public override List<Coord> GetCoordsInBox(Vector2 start, Vector2 end)
         {
             return TileCoord.GetCoordsInBox(start, end);
+        }
+
+        public override List<Coord> GetCorner(int direction, int radius, int thickness)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override bool IsInLine(Coord coord1, Coord coord2)
+        {
+            return TileCoord.IsInLine(coord1, coord2);
         }
     }
 }

@@ -1,3 +1,4 @@
+using HexTecGames.Basics;
 using HexTecGames.GridBaseSystem;
 using System;
 using System.Collections;
@@ -226,13 +227,18 @@ namespace HexTecGames.RectGridSystem
         // Neighbours = Diagonals + Adjacent
         public static Coord GetAdjacent(Coord center, int direction, int distance = 1)
         {
-            direction = direction.LoopValue(MaximumRotation);
+            direction = direction.WrapDirection(MaximumRotation);
             
             if (distance <= 1)
             {
                 return center + adjacents[direction];
             }
             else return center + adjacents[direction] * distance;
+        }
+        public static Coord GetAdjacent(int direction)
+        {
+            direction = direction.WrapDirection(MaximumRotation);
+            return adjacents[direction];
         }
         public static List<Coord> GetAdjacents(Coord center, int distance = 1)
         {
