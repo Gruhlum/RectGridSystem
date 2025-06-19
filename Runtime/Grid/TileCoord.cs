@@ -1,11 +1,10 @@
 using HexTecGames.Basics;
-using HexTecGames.GridBaseSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HexTecGames.RectGridSystem
+namespace HexTecGames.GridRectSystem
 {
     public static class TileCoord
     {

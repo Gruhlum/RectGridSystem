@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace HexTecGames.RectGridSystem
+namespace HexTecGames.GridRectSystem
 {
     public class RectGrid : BaseGrid
     {

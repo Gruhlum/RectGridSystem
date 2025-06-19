@@ -5,7 +5,7 @@ using HexTecGames.GridBaseSystem;
 using HexTecGames.GridBaseSystem.Shapes;
 using UnityEngine;
 
-namespace HexTecGames.RectGridSystem.Shapes
+namespace HexTecGames.GridRectSystem.Shapes
 {
     [System.Serializable]
     public class SquareShape : Shape
