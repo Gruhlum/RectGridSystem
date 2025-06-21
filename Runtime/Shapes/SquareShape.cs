@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using HexTecGames.Basics;
-using HexTecGames.GridBaseSystem;
 using HexTecGames.GridBaseSystem.Shapes;
 using UnityEngine;
 

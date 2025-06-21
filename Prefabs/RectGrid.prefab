@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 3470767551147018117}
-  defaultVisual: {fileID: 0}
   visualParent: {fileID: 5333064472088573259}
 --- !u!1 &1854436945792919554
 GameObject:
@@ -259,12 +258,15 @@ MonoBehaviour:
     isValid: 0
   defaultTileData: {fileID: 0}
   shape:
-    rid: -2
+    rid: 3501086281067921408
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 3501086281067921408
+      type: {class: SquareShape, ns: HexTecGames.GridRectSystem.Shapes, asm: HexTecGames.GridRectSystem}
+      data:
+        height: 10
+        width: 10
 --- !u!1001 &9204966774596892432
 PrefabInstance:
   m_ObjectHideFlags: 0
