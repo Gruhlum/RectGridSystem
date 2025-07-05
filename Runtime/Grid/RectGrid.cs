@@ -1,8 +1,6 @@
-﻿using HexTecGames.Basics;
+﻿using System.Collections.Generic;
+using HexTecGames.Basics;
 using HexTecGames.GridBaseSystem;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace HexTecGames.GridRectSystem
@@ -54,8 +52,8 @@ namespace HexTecGames.GridRectSystem
         public override Vector3 CoordToWorldPosition(Coord coord)
         {
             return new Vector2(
-                coord.x * TotalHorizontalSpacing + transform.position.x,
-                coord.y * TotalVerticalSpacing + transform.position.y);
+                (coord.x * TotalHorizontalSpacing) + transform.position.x,
+                (coord.y * TotalVerticalSpacing) + transform.position.y);
             //return new Vector2(coord.x + transform.position.x, coord.y + transform.position.y);
         }
         public override Coord WorldPositionToCoord(Vector3 position)

@@ -1,7 +1,5 @@
-using HexTecGames.Basics;
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using HexTecGames.Basics;
 using UnityEngine;
 
 namespace HexTecGames.GridRectSystem
@@ -86,7 +84,7 @@ namespace HexTecGames.GridRectSystem
         public static readonly Coord[] adjacents = new Coord[] { Up, Right, Down, Left };
         public static readonly Coord[] diagonals = new Coord[] { UpRight, DownRight, DownLeft, UpLeft };
 
-        public readonly static int MaximumRotation = 4;
+        public static readonly int MaximumRotation = 4;
 
         public static int Length(Coord coord)
         {
@@ -188,7 +186,7 @@ namespace HexTecGames.GridRectSystem
             }
             return results;
         }
-        public  static List<Coord> GetLine(Coord start, Coord target)
+        public static List<Coord> GetLine(Coord start, Coord target)
         {
             List<Coord> results = new List<Coord>();
             float distance = GetDistance(start, target);
@@ -227,12 +225,12 @@ namespace HexTecGames.GridRectSystem
         public static Coord GetAdjacent(Coord center, int direction, int distance = 1)
         {
             direction = direction.WrapDirection(MaximumRotation);
-            
+
             if (distance <= 1)
             {
                 return center + adjacents[direction];
             }
-            else return center + adjacents[direction] * distance;
+            else return center + (adjacents[direction] * distance);
         }
         public static Coord GetAdjacent(int direction)
         {
@@ -254,7 +252,7 @@ namespace HexTecGames.GridRectSystem
             {
                 return center + diagonals[direction % 4];
             }
-            return center + diagonals[direction % 4] * distance;
+            return center + (diagonals[direction % 4] * distance);
         }
         public static List<Coord> GetDiagonals(Coord center, int distance = 1)
         {
@@ -267,10 +265,10 @@ namespace HexTecGames.GridRectSystem
                 return new() { center };
             }
 
-            var results = new List<Coord>();
+            List<Coord> results = new List<Coord>();
             if (distance == 1)
             {
-                foreach (var neighbour in adjacents)
+                foreach (Coord neighbour in adjacents)
                 {
                     results.Add(center + neighbour);
                 }
