@@ -1,12 +1,13 @@
 {
   "name": "com.hextecgames.gridrectsystem",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "displayName": "GridRectSystem",
   "description": "Package for handling rectangular grids",
   "unity": "2022.1",
   "dependencies": {
     "com.hextecgames.basics": "1.0.0",
-    "com.hextecgames.gridbasesystem": "1.0.0"
+    "com.hextecgames.gridbasesystem": "1.0.0",
+    "com.unity.textmeshpro": "3.0.1"
   },
   "author": {
     "name": "HexTecGames",
